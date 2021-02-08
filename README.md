@@ -30,6 +30,74 @@ If you like the project, you can become a sponsor at [Open Collective](https://o
 
 ## Documentation
 
+### 增加手写中文字体支持
+
+字体下载：[方正手迹-致温暖的小时光](http://www.foundertype.com/index.php/FontInfo/index/id/4855)
+
+文件修改：
+
+- public/index.html
+
+  ```html
+  <link
+      rel="preload"
+      href="FZSJ-ZHIWNDXSG.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin="anonymous"
+  />
+  ```
+
+  
+
+- public/fonts.css
+
+  ```css
+  @font-face {
+    font-family: "ZHIWNDXSG";
+    src: url("FZSJ-ZHIWNDXSG.woff2");
+    font-display: swap;
+  }
+  ```
+
+  
+
+- src/constants.ts
+
+  ```typescript
+  export const FONT_FAMILY = {
+    1: "Virgil",
+    2: "Helvetica",
+    3: "Cascadia",
+    4: "ZHIWNDXSG",
+  } as const;
+  ```
+
+  
+
+- src/locales/zh-CN.json
+
+  ```
+  ...
+  "handChinese":"中文手写",
+  ...
+  ```
+
+  
+
+- src/actions/actionProperties.tsx
+
+  ```tsx
+    PanelComponent: ({ elements, appState, updateData }) => {
+      const options: { value: FontFamily; text: string }[] = [
+        { value: 1, text: t("labels.handDrawn") },
+        { value: 2, text: t("labels.normal") },
+        { value: 3, text: t("labels.code") },
+        { value: 4, text: t("labels.handChinese") },
+      ];
+  ```
+
+
 ### Shortcuts
 
 You can almost do anything with shortcuts. Click on the help icon on the bottom right corner to see them all.
@@ -134,3 +202,6 @@ Pull requests are welcome. For major changes, please [open an issue](https://git
 - [Vercel](https://vercel.com)
 
 And the main source of inspiration for starting the project is the awesome [Zwibbler](https://zwibbler.com/demo/) app.
+
+
+  

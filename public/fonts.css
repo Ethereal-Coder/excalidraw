@@ -11,3 +11,11 @@
   src: url("Cascadia.woff2");
   font-display: swap;
 }
+
+/* http://www.foundertype.com/index.php/FontInfo/index/id/4855 */
+/* 方正手迹-致温暖的小时光 */
+@font-face {
+  font-family: "ZHIWNDXSG";
+  src: url("FZSJ-ZHIWNDXSG.woff2");
+  font-display: swap;
+}
